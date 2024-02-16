@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PatakDrajv | Moj Disk</title>
+    <link rel="stylesheet" href="/assets/css/disk.css">
+    <script src="/assets/js/disk.js" defer></script>
+    <script src="/assets/js/disk-events.js" defer></script>
+</head>
+<body>
+    <div id="app">
+        <div id="nav-logo">
+            <img src="/images/disk.png" alt="" srcset="">
+            <p>Disk</p>
+        </div>
+        <nav>
+            <div class="search-box">
+                <input type="search" placeholder="Pretraži" name="" id="">
+                <button class="search">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 24 24" style="fill: #333;"><path d="M10 18a7.952 7.952 0 0 0 4.897-1.688l4.396 4.396 1.414-1.414-4.396-4.396A7.952 7.952 0 0 0 18 10c0-4.411-3.589-8-8-8s-8 3.589-8 8 3.589 8 8 8zm0-14c3.309 0 6 2.691 6 6s-2.691 6-6 6-6-2.691-6-6 2.691-6 6-6z"></path></svg>
+                </button>
+            </div>
+            <div style="display: flex; align-items: center;">
+                <div class="help nav-button">
+                    <div class="inner-button" data-button-type="modal-button">
+                        <div class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" style="fill: #333;"><path d="M12 6a3.939 3.939 0 0 0-3.934 3.934h2C10.066 8.867 10.934 8 12 8s1.934.867 1.934 1.934c0 .598-.481 1.032-1.216 1.626a9.208 9.208 0 0 0-.691.599c-.998.997-1.027 2.056-1.027 2.174V15h2l-.001-.633c.001-.016.033-.386.441-.793.15-.15.339-.3.535-.458.779-.631 1.958-1.584 1.958-3.182A3.937 3.937 0 0 0 12 6zm-1 10h2v2h-2z"></path><path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"></path></svg>
+                        </div>
+                    </div>
+                    <div class="nav-popup-box" id="nav-help-popup">
+
+                    </div>
+                </div>
+                <div class="settings nav-button">
+                    <div class="inner-button" data-button-type="modal-button">
+                        <div class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" style="fill: #333;"><path d="M12 16c2.206 0 4-1.794 4-4s-1.794-4-4-4-4 1.794-4 4 1.794 4 4 4zm0-6c1.084 0 2 .916 2 2s-.916 2-2 2-2-.916-2-2 .916-2 2-2z"></path><path d="m2.845 16.136 1 1.73c.531.917 1.809 1.261 2.73.73l.529-.306A8.1 8.1 0 0 0 9 19.402V20c0 1.103.897 2 2 2h2c1.103 0 2-.897 2-2v-.598a8.132 8.132 0 0 0 1.896-1.111l.529.306c.923.53 2.198.188 2.731-.731l.999-1.729a2.001 2.001 0 0 0-.731-2.732l-.505-.292a7.718 7.718 0 0 0 0-2.224l.505-.292a2.002 2.002 0 0 0 .731-2.732l-.999-1.729c-.531-.92-1.808-1.265-2.731-.732l-.529.306A8.1 8.1 0 0 0 15 4.598V4c0-1.103-.897-2-2-2h-2c-1.103 0-2 .897-2 2v.598a8.132 8.132 0 0 0-1.896 1.111l-.529-.306c-.924-.531-2.2-.187-2.731.732l-.999 1.729a2.001 2.001 0 0 0 .731 2.732l.505.292a7.683 7.683 0 0 0 0 2.223l-.505.292a2.003 2.003 0 0 0-.731 2.733zm3.326-2.758A5.703 5.703 0 0 1 6 12c0-.462.058-.926.17-1.378a.999.999 0 0 0-.47-1.108l-1.123-.65.998-1.729 1.145.662a.997.997 0 0 0 1.188-.142 6.071 6.071 0 0 1 2.384-1.399A1 1 0 0 0 11 5.3V4h2v1.3a1 1 0 0 0 .708.956 6.083 6.083 0 0 1 2.384 1.399.999.999 0 0 0 1.188.142l1.144-.661 1 1.729-1.124.649a1 1 0 0 0-.47 1.108c.112.452.17.916.17 1.378 0 .461-.058.925-.171 1.378a1 1 0 0 0 .471 1.108l1.123.649-.998 1.729-1.145-.661a.996.996 0 0 0-1.188.142 6.071 6.071 0 0 1-2.384 1.399A1 1 0 0 0 13 18.7l.002 1.3H11v-1.3a1 1 0 0 0-.708-.956 6.083 6.083 0 0 1-2.384-1.399.992.992 0 0 0-1.188-.141l-1.144.662-1-1.729 1.124-.651a1 1 0 0 0 .471-1.108z"></path></svg>
+                        </div>
+                    </div>
+                    <div class="nav-popup-box" id="nav-settings-popup">
+
+                    </div>
+                </div>
+                <div class="profile nav-button">
+                    <div class="inner-button" data-button-type="modal-button">
+                        <div class="profile-image">
+                            <img src="/images/<%= user.icon %>" alt="">
+                        </div>
+                    </div>
+                    <div class="nav-popup-box" id="nav-profile-popup">
+                        <div class="heading">
+                            <div class="icon">
+                                <img src="/images/<%= user.icon %>" alt="">
+                            </div>
+                            <div class="greeting">
+                                <p>Dobrodošli, <span><%= user.username %></span>!</p>
+                            </div>
+                        </div>
+                        <div class="buttons">
+                            <button id="manage-account"><svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" style="fill: #fff; margin-top: -2px;"><path d="M12 2a5 5 0 1 0 5 5 5 5 0 0 0-5-5zm0 8a3 3 0 1 1 3-3 3 3 0 0 1-3 3zm9 11v-1a7 7 0 0 0-7-7h-4a7 7 0 0 0-7 7v1h2v-1a5 5 0 0 1 5-5h4a5 5 0 0 1 5 5v1z"></path></svg>Upravljajte nalogom</button>
+                            <button id="logout" onclick="location.href='/logout'"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" style="fill: var(--color-ming)"><path d="M16 13v-2H7V8l-5 4 5 4v-3z"></path><path d="M20 3h-9c-1.103 0-2 .897-2 2v4h2V5h9v14h-9v-4H9v4c0 1.103.897 2 2 2h9c1.103 0 2-.897 2-2V5c0-1.103-.897-2-2-2z"></path></svg>Odjavite se</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div id="sidenav">
+            <div class="button">
+                <button class="new" id="button-new"><svg xmlns="http://www.w3.org/2000/svg" style="fill: #fff" width="22" height="22" viewBox="0 0 24 24"><path d="M19 11h-6V5h-2v6H5v2h6v6h2v-6h6z"></path></svg><p>Novo</p></button>
+            </div>
+            <ul class="meni-lista"> 
+                <li class="active"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"><path d="m21.983 13.821-1.851-10.18A1.998 1.998 0 0 0 18.165 2H5.835a2 2 0 0 0-1.968 1.643l-1.85 10.178.019.003c-.012.06-.036.114-.036.176v5c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2v-5c0-.063-.024-.116-.035-.176l.018-.003zM5.835 4h12.331l1.637 9H4.198l1.637-9zM4 19v-4h16l.002 4H4z"></path><path d="M17 16h2v2h-2zm-3 0h2v2h-2z"></path></svg><p>Disk</p></li>
+                <li><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"><path d="M18 2H6c-1.103 0-2 .897-2 2v18l8-4.572L20 22V4c0-1.103-.897-2-2-2zm0 16.553-6-3.428-6 3.428V4h12v14.553z"></path></svg><p>Omiljeno</p></li>
+                <li><svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24"><path d="M15 2H9c-1.103 0-2 .897-2 2v2H3v2h2v12c0 1.103.897 2 2 2h10c1.103 0 2-.897 2-2V8h2V6h-4V4c0-1.103-.897-2-2-2zM9 4h6v2H9V4zm8 16H7V8h10v12z"></path></svg><p>Smeće</p></li>
+            </ul>
+            <ul style="margin-top: auto; user-select: none;" class="meni-lista"> 
+                <li style="flex-direction: column; align-items: flex-start;">
+                    <div style="display: flex; align-items: center; width: 100%;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"><path d="M18.944 11.112C18.507 7.67 15.56 5 12 5 9.244 5 6.85 6.611 5.757 9.15 3.609 9.792 2 11.82 2 14c0 2.757 2.243 5 5 5h11c2.206 0 4-1.794 4-4a4.01 4.01 0 0 0-3.056-3.888zM18 17H7c-1.654 0-3-1.346-3-3 0-1.404 1.199-2.756 2.673-3.015l.581-.102.192-.558C8.149 8.274 9.895 7 12 7c2.757 0 5 2.243 5 5v1h1c1.103 0 2 .897 2 2s-.897 2-2 2z"></path></svg>
+                        <p>Memorija</p>
+                        <p style="margin-left: auto;"><span id="used-space">-</span>/<span id="total-space">-</span></p>
+                    </div>
+                    <div class="used-space">
+                        <div class="used" id="used-space-perc"></div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div id="container">
+            <div id="files">
+                <input type="file" id="file-upload" multiple hidden/>
+                <div class="path" id="path">
+                </div>
+                <div id="file-table">
+                    <div class="heading item">
+                        <div class="name item-box clickable active reversed">
+                            <div>
+                                <span>Ime</span>
+                                <img src="/images/bx-down-arrow-alt.svg">
+                            </div>
+                        </div>
+                        <div class="size item-box clickable active">
+                            <div>
+                                <span>Veličina</span>
+                                <img src="/images/bx-down-arrow-alt.svg">
+                            </div>
+                        </div>
+                        <div class="date item-box clickable">
+                            <div>
+                                <span>Poslednja izmena</span>
+                                <img src="/images/bx-down-arrow-alt.svg">
+                            </div>
+                        </div>
+                    </div>
+                    <div id="file-loader">
+                        <img src="/images/loader-sm.svg" alt="">
+                    </div>
+                    <div id="items">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="context-menu">
+            <div data-menu-type="0">
+                <ul>
+                    <li onclick="promptCreateNewFolder()"><img src="/images/bx-folder-plus.svg"><span>Napravi fasciklu</span></li>
+                </ul>
+                <ul>
+                    <li onclick="document.querySelector('#file-upload').click()"><img src="/images/bx-upload.svg"><span>Otpremi datoteke</span></li>
+                    <li onclick=""><img src="/images/bx-cloud-upload.svg"><span>Otpremi fasciklu</span></li>
+                </ul>
+            </div>
+            <div data-menu-type="1">
+                <ul>
+                    <li onclick="downloadFile()"><img src="/images/bx-download.svg"><span>Preuzmi</span></li>
+                </ul>
+                <ul>
+                    <li onclick=""><img src="/images/bx-bookmark.svg"><span>Izdvoj</span></li>
+                    <li onclick="promptRename()"><img src="/images/bx-edit-alt.svg"><span>Preimenuj</span></li>
+                    <li onclick=""><img src="/images/bx-copy.svg"><span>Napravi Kopiju</span></li>
+                    <li onclick=""><img src="/images/bx-move.svg"><span>Premesti</span></li>
+                    <li onclick=""><img src="/images/bx-info-circle.svg"><span>Informacije</span></li>
+                </ul>
+                <ul>
+                    <li onclick="deleteFiles()"><img src="/images/bx-trash-alt.svg"><span>Obriši</span></li>
+                </ul>
+            </div>
+            <div data-menu-type="2">
+                <ul>
+                    <li onclick="openFolder()"><img src="/images/bx-folder-open.svg"><span>Otvori fasciklu</span></li>
+                </ul>
+                <ul>
+                    <li onclick=""><img src="/images/bx-bookmark.svg"><span>Izdvoj</span></li>
+                    <li onclick="promptRename()"><img src="/images/bx-edit-alt.svg"><span>Preimenuj</span></li>
+                    <li onclick=""><img src="/images/bx-move.svg"><span>Premesti</span></li>
+                    <li onclick=""><img src="/images/bx-info-circle.svg"><span>Informacije</span></li>
+                </ul>
+                <ul>
+                    <li onclick="deleteFiles()"><img src="/images/bx-trash-alt.svg"><span>Obriši</span></li>
+                </ul>
+            </div>
+        </div>
+        <div id="prompt" onclick="closeCustomPrompt()">
+            <div class="prompt-box new-folder" data-prompt-type="0">
+                <div class="header">
+                    <h1>Kreiraj fasciklu</h1>
+                </div>
+                <div class="body">
+                    <label for="new-folder-input">Naziv</label>
+                    <input type="text" name="folder-name" id="new-folder-input" placeholder="Bitna fascikla">
+                </div>
+                <div class="buttons">
+                    <img class="submit-loader" id="new-folder-submit-loader" src="/images/loader-sm.svg" alt="">
+                    <button class="cancel" onclick="closeCustomPrompt()">Otkaži</button>
+                    <button class="ok" data-button="submit" id="submit-new-folder" disabled>Napravi</button>
+                </div>
+            </div>
+            <div class="prompt-box rename" data-prompt-type="1">
+                <div class="header">
+                    <h1>Preimenuj</h1>
+                </div>
+                <div class="body">
+                    <label for="rename-input">Novi Naziv</label>
+                    <input type="text" name="renamed-name" id="rename-input" placeholder="Bitan fajl">
+                </div>
+                <div class="buttons">
+                    <img class="submit-loader" id="rename-submit-loader" src="/images/loader-sm.svg" alt="">
+                    <button class="cancel" onclick="closeCustomPrompt()">Otkaži</button>
+                    <button class="ok" data-button="submit" id="rename-new-folder" disabled>Preimenuj</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

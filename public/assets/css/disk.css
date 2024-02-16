@@ -1,0 +1,675 @@
+:root{
+    --color-ming: #477070;
+    --color-reddamask: #C86F43;
+    --color-horizon: #cfe8e8;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto';
+}
+
+body{
+    background-color: #f3f3f3;
+    overflow: hidden;
+}
+
+div#app{
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    grid-template-rows: 65px 1fr;
+    grid-template-areas: "navlogo nav"
+                         "sidenav content";
+    height: 100vh;
+    width: 100vw;
+    padding: 0 1rem 1rem;
+}
+
+div#nav-logo{
+    grid-area: navlogo;
+    display: flex;
+    align-items: center;
+    user-select: none;
+}
+div#nav-logo > img{
+    height: 36px;
+}
+div#nav-logo > p{
+    font-weight: 400;
+    font-size: 26px;
+    padding-left: .5rem;
+    color: #333;
+}
+
+nav{
+    grid-area: nav;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+nav > .search-box{
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 16px;
+    transition: .14s ease all;
+    overflow: hidden;
+    padding: 0 5px 0 16px;
+}
+nav > .search-box.active {
+    box-shadow: 0 0 4px rgba(0, 0, 0, .08);
+}
+nav > .search-box input{
+    background-color: none;
+    outline: 0;
+    border: none;
+    font-size: 1rem;
+    padding: 12px 0;
+    width: 300px;
+    transition: .14s ease width;
+    appearance: none;
+}
+/* clears the ‘X’ from Internet Explorer */
+input[type=search]::-ms-clear { display: none; width : 0; height: 0; }
+input[type=search]::-ms-reveal { display: none; width : 0; height: 0; }
+/* clears the ‘X’ from Chrome */
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration { 
+    display: none;
+}
+nav > .search-box button.search{
+    outline: 0;
+    border: none;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+    padding: 6px;
+    cursor: pointer;
+    transition: .14s ease background-color;
+}
+nav > .search-box button.search:hover{
+    background-color: #ddd;
+}
+nav > .search-box button.search:active{
+    background-color: #ccc;
+}
+nav div.nav-button{
+    position: relative;
+    user-select: none;
+}
+nav div.nav-button > div.inner-button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background-color: transparent;
+    transition: .14s ease background-color;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    margin: .25rem;
+}
+div.nav-button > div.nav-popup-box{
+    display: none;
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    width: 300px;
+    min-height: 50px;
+    z-index: 999;
+    background-color: #fff;
+    border-radius: 16px;
+    box-shadow: 0 0 6px rgba(0, 0, 0, .15);
+    transition: .14s ease all;
+}
+div#nav-profile-popup{
+    display: none;
+    flex-direction: column;
+    padding: 1rem .75rem;
+}
+div#nav-profile-popup div.heading{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+div#nav-profile-popup div.heading div.icon{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: .5rem 0;
+}
+div#nav-profile-popup div.heading div.icon img{
+    width: 100%;
+    height: 100%;
+}
+div#nav-profile-popup div.heading div.greeting{
+    margin: .25rem 0;
+}
+div#nav-profile-popup div.heading div.greeting p{
+    font-size: 18px;
+    font-weight: 400;
+    color: #333;
+}
+div#nav-profile-popup div.heading div.greeting p span{
+    font-weight: 500;
+}
+div#nav-profile-popup div.buttons{
+    display: flex;
+    flex-direction: column;
+    margin: 1rem 0 .25rem;
+}
+div#nav-profile-popup div.buttons button{
+    border: none;
+    outline: 0;
+    padding: 10px 16px;
+    margin: .375rem 0;
+    cursor: pointer;
+    font-size: 15px;
+    border-radius: 16px;
+    background-color: transparent;
+    transition: .14s ease all;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+div#nav-profile-popup div.buttons button svg{
+    margin-right: 4px;
+}
+div#nav-profile-popup div.buttons button#manage-account{
+    border: 1px solid var(--color-ming);
+    background-color: var(--color-ming);
+    color: #fff;
+}
+div#nav-profile-popup div.buttons button#manage-account:hover{
+    background-color: #3c6060;
+}
+div#nav-profile-popup div.buttons button#manage-account:active{
+    background-color: #324f4f;
+}
+div#nav-profile-popup div.buttons button#logout{
+    border: 1px solid #a6c0c0;
+    color: var(--color-ming);
+    padding: 8px 16px;
+}
+div#nav-profile-popup div.buttons button#logout:hover{
+    background-color: #fafafa;
+}
+div#nav-profile-popup div.buttons button#logout:active{
+    background-color: #eee;
+}
+
+nav div.nav-button > div.inner-button:hover{
+    background-color: #ddd;
+}
+nav div.nav-button.active > div.inner-button,
+nav div.nav-button > div.inner-button:active{
+    background-color: #ccc;
+}
+nav div.nav-button div.icon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+nav div.profile{
+    margin: 0 0 0 .5rem;
+}
+nav div.profile div.profile-image{
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+nav div.profile div.profile-image img{
+    width: 100%;
+    height: 100%;
+}
+
+div#sidenav{
+    grid-area: sidenav;
+    display: flex;
+    flex-direction: column;
+    padding-right: 1rem;
+}
+div#sidenav > div.button{
+    margin: .75rem 0;
+}
+div#sidenav div.button button.new{
+    display: flex;
+    align-items: center;
+    padding: .675rem 1rem;
+    border: none;
+    background-color: var(--color-reddamask);
+    border-radius: 16px;
+    cursor: pointer;
+    transition: .14s ease all;
+    user-select: none;
+    outline: 0;
+}
+div#sidenav div.button button.new:hover{
+    background-color: #b2623a;
+}
+div#sidenav div.button button.new:active{
+    background-color: #a75831;
+}
+div#sidenav div.button button.new p{
+    font-size: .875rem;
+    font-weight: 400;
+    color: #fff;
+}
+div#sidenav div.button button.new svg{
+    margin-right: .25rem;
+}
+div#sidenav > ul{
+    padding: .25rem 0;
+    width: 100%;
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+div#sidenav ul li{
+    cursor: pointer;
+    margin: .125rem 0;
+    padding: .5rem 1rem;
+    width: 100%;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    transition: .14s ease all;
+}
+div#sidenav ul li p{
+    color: #333;
+    font-size: .875rem;
+    font-weight: 500;
+    user-select: none;
+}
+div#sidenav ul li:hover{
+    background-color: #ddd;
+}
+div#sidenav ul li:active{
+    background-color: #ccc;
+}
+div#sidenav ul li.active{
+    cursor: default;
+    background-color: var(--color-horizon);
+}
+div#sidenav ul li.active svg{
+    fill: var(--color-ming);
+}
+div#sidenav ul li.active p{
+    color: var(--color-ming);
+}
+div#sidenav ul li svg{
+    fill: #333;
+    margin-right: .25rem;
+}
+div#sidenav ul li div.used-space{
+    width: 100%;
+    height: 3px;
+    margin: .5rem 0;
+    background-color: var(--color-horizon);
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+}
+div#sidenav ul li div.used-space .used{
+    height: 100%;
+    width: 0;
+    background-color: var(--color-ming);
+    transition: .14s ease width;
+    border-radius: 0 1px 1px 0;
+}
+
+div#container{
+    grid-area: content;
+    overflow: hidden;
+}
+div#files{
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+    border-radius: 16px;
+    background-color: #fff;
+}
+div#files > div.path{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 .125rem;
+}
+div#files > div.path div.folder{
+    display: flex;
+    align-items: center;
+}
+div#files > div.path div.folder p{
+    font-size: 19px;
+    font-weight: 400;
+    color: #333;
+    padding: 6px 12px;
+    cursor: pointer;
+    transition: .14s ease background-color;
+    border-radius: 16px;
+    user-select: none;
+}
+div#files > div.path div.folder p:hover{
+    background-color: #ddd;
+}
+div#files > div.path div.folder p:active{
+    background-color: #ccc;
+}
+div#files > div.path div.folder::after{
+    display: block;
+    content: "";
+    width: 22px;
+    height: 22px;
+    margin-right: 4px;
+    background-image: url('/images/bx-chevron-right.svg');
+    padding-bottom: 1px;
+}
+div#files > div.path div.folder:last-child:after{
+    display: none;
+}
+div#file-loader{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: .5rem 0;
+}
+div#file-loader.loaded{
+    display: none;
+}
+div#file-loader img{
+    height: 36px;
+    width: 36px;
+}
+div#file-table{
+    width: 100%;
+    height: calc(100% - 90px);
+    margin: .5rem 0;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+}
+div#items::-webkit-scrollbar {
+    width: 8px;
+}
+div#items::-webkit-scrollbar-track {
+    background: #fff;
+}
+div#items::-webkit-scrollbar-thumb {
+    background: #bfbfbf;
+    border-radius: 8px;
+}
+div#items::-webkit-scrollbar-thumb:hover {
+    background: #aaa;
+}
+div#file-table #items{
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    overflow-y: scroll;
+    height: 100%;
+}
+div#file-table div.item{
+    display: flex;
+    width: 100%;
+    padding: .25rem;
+    user-select: none;
+    transition: .06s ease all;
+    border-radius: 8px;
+}
+div#file-table div.item.heading{
+    box-shadow: 0 3px 2px -2px rgba(0, 0, 0, .06);
+    border-radius: 0;
+}
+div#file-table div.item:nth-child(even){
+    background-color: #f6f6f6;
+}
+div#file-table div.item.active{
+    background-color: var(--color-horizon);
+    color: var(--color-ming);
+}
+div#file-table div.item.heading span{
+    font-weight: 500;
+    color: #333;
+}
+div#file-table div.item div.item-box{
+    display: flex;
+}
+div#file-table div.item div.item-box div{
+    display: flex;
+    align-items: center;
+    padding: .5rem .75rem;
+    width: 100%;
+}
+div#file-table div.item.heading div.item-box div{
+    width: auto !important;
+}
+div#file-table div.item div.item-box.clickable div{
+    padding: 6px 12px;
+    border-radius: 16px;
+    transition: .14s ease background-color;
+    cursor: pointer;
+    user-select: none;
+}
+div#file-table div.item.heading div.item-box.clickable img{
+    width: 22px;
+    height: 22px;
+    display: none;
+    margin-left: 4px;
+    transition: .14s ease transform;
+}
+div#file-table div.item.heading div.item-box.clickable.reversed img{
+    transform: rotateZ(-180deg);
+}
+div#file-table div.item.heading div.item-box.clickable.active img{
+    display: block;
+}
+div#file-table div.item div.item-box.clickable div:hover{
+    background-color: #ddd;
+}
+div#file-table div.item div.item-box.clickable div:active{
+    background-color: #ccc;
+}
+div#file-table div.item div.icon{
+    flex-basis: 50px;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+div#file-table div.item div.name{
+    flex-basis: 280px;
+    width: 280px;
+    flex-grow: 1;
+}
+div#file-table div.item div.size{
+    flex-basis: 120px;
+    width: 120px;
+}
+div#file-table div.item div.date{
+    flex-basis: 200px;
+    width: 200px;
+}
+div#file-table div.item div.item-box span{
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: 15px;
+}
+div#context-menu{
+    display: none;
+    opacity: 0;
+    position: fixed;
+    z-index: 1;
+    top: 200px;
+    left: 200px;
+    width: 220px;
+    min-height: 10px;
+    background-color: #fff;
+    box-shadow: 0 0 4px rgba(0, 0, 0, .14);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: .14s ease opacity,
+                .06s ease top,
+                .06s ease left;
+}
+div#context-menu > div[data-menu-type]{
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    user-select: none;
+}
+div#context-menu > div[data-menu-type].active{
+    display: flex;
+}
+div#context-menu > div > ul{
+    display: flex;
+    flex-direction: column;
+    padding: .25rem 0;
+    list-style-type: none;
+    border-bottom: 1px solid #ddd;
+}
+div#context-menu > div > ul:last-child{
+    border: none;
+}
+div#context-menu > div > ul li{
+    display: flex;
+    align-items: center;
+    padding: .5rem .75rem;
+    cursor: pointer;
+    transition: .14s ease background-color;
+}
+div#context-menu > div > ul li:hover{
+    background-color: #eee;
+}
+div#context-menu > div > ul li:active{
+    background-color: #e0e0e0;
+}
+div#context-menu > div > ul li img{
+    width: 22px;
+    height: 22px;
+}
+div#context-menu > div > ul li span{
+    font-size: 15px;
+    padding-left: .25rem;
+    color: #333;
+}
+div#prompt{
+    position: fixed;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, .6);
+    transition: .14s ease opacity;
+}
+div#prompt > div.prompt-box{
+    display: none;
+    flex-direction: column;
+    background-color: #fff;
+    box-shadow: 0 0 4px rgba(0, 0, 0, .08);
+    border-radius: 8px;
+    padding: 1rem;
+    width: 320px;
+}
+div#prompt > div.prompt-box.active{
+    display: flex;
+}
+div#prompt > div.prompt-box div.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: .5rem;
+}
+div#prompt > div.prompt-box div.header h1{
+    font-size: 24px;
+    color: #333;
+    font-weight: 400;
+}
+div#prompt > div.prompt-box div.header div.close{
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+div#prompt > div.prompt-box div.body{
+    display: flex;
+    flex-direction: column;
+    padding: .5rem;
+}
+div#prompt > div.prompt-box div.body input{
+    padding: .675rem 1rem;
+    background-color: #fafafa;
+    border: 1px solid #c0c0c0;
+    border-radius: 8px;
+    outline: 0;
+    font-size: 15px;
+    transition: .14s ease border-color,
+                .14s ease outline-color,
+                .14s ease background-color;
+    outline: 2px transparent;
+}
+div#prompt > div.prompt-box div.body input:focus{
+    background-color: #fff;
+    border-color: var(--color-ming);
+    outline: 2px solid var(--color-horizon);
+}
+div#prompt > div.prompt-box div.body label{
+    font-size: 15px;
+    padding: .5rem 0;
+}
+div#prompt > div.prompt-box div.buttons{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: .5rem;
+}
+div#prompt > div.prompt-box div.buttons img.submit-loader{
+    display: none;
+    margin-right: auto;
+    width: 28px;
+    height: 28px;
+}
+div#prompt > div.prompt-box div.buttons img.submit-loader.active{
+    display: block;
+}
+div#prompt > div.prompt-box div.buttons button{
+    margin: 0 .25rem;
+    background: none;
+    border: none;
+    color: var(--color-ming);
+    cursor: pointer;
+    font-size: 15px;
+    padding: .5rem .75rem;
+    border-radius: 16px;
+    font-weight: 500;
+    transition: .14s ease background-color;
+}
+div#prompt > div.prompt-box div.buttons button:hover{
+    background-color: var(--color-horizon);
+}
+div#prompt > div.prompt-box div.buttons button:active{
+    background-color: #b2e0e0;
+}
+div#prompt > div.prompt-box div.buttons button:disabled{
+    background-color: #fff;
+    color: #aaa;
+    cursor: default;
+}

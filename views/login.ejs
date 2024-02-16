@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PatakDrajv | Login</title>
+    <link rel="stylesheet" href="assets/css/login.css">
+</head>
+<body>
+    <div id="container">
+        <div class="box">
+            <div class="heading">
+                <img src="/images/disk.png" alt="">
+                <h1>Prijava</h1>
+            </div>
+            <form action="/auth" method="post" id="form">
+                <div class="form-group">
+                    <input type="text" name="username" id="username" required="true">
+                    <label for="username">Korisničko Ime</label>
+                </div>
+                <div class="form-group">
+                    <input type="password" name="password" id="password" required="true">
+                    <label for="password">Lozinka</label>
+                </div>
+                <div class="form-group">
+                    <p>Pritiskom na dugme ispod prihvatate <a href="">Politiku privatnosti</a> i <a href="">Uslove korišćenja</a>.</p>
+                </div>
+                <button type="submit">Prijavi se</button>
+            </form>
+            <div id="response">
+                <p id="login-error-message"></p>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.querySelector('#form').addEventListener('submit', e => {
+            e.preventDefault()
+            const username = document.querySelector('[name="username"]').value
+            const password = document.querySelector('[name="password"]').value
+            fetch('/auth/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    username,
+                    password
+                })
+            }).then(res => res.json())
+            .then(data => {
+                if(data?.issuedToken) return location.href = '/'
+                document.querySelector('#login-error-message').innerText = data.message
+            }).catch(err => {
+                document.querySelector('#login-error-message').innerText = err.message
+            })
+        })
+    </script>
+</body>
+</html>

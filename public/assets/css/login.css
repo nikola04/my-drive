@@ -1,0 +1,125 @@
+:root{
+    --color-ming: #477070;
+    --color-reddamask: #C86F43;
+    --color-horizon: #cfe8e8;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto';
+}
+
+div#container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+div#container > div.box{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 320px;
+    /* box-shadow: 0 0 8px rgba(0, 0, 0, .08); */
+    padding: 1rem;
+    border-radius: 8px;
+    /* background-color: #fff; */
+}
+div#response{
+    position: absolute;
+    bottom: 0;
+}
+div#response p{
+    columns: #333;
+    font-size: 15px;
+}
+
+div#container > div.box > .heading{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: .75rem 0;
+}
+
+div#container > div.box > .heading img{
+    width: 36px;
+}
+div#container > div.box > .heading h1{
+    font-size: 21px;
+    font-weight: 500;
+    color: #333;
+    padding-left: 4px;
+}
+
+div#container > div.box form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: .5rem 0;
+}
+div#container > div.box form div.form-group{
+    margin: .5rem 0;
+    position: relative;
+}
+div#container > div.box form div.form-group p{
+    font-size: 13px;
+    color: #333;
+}
+div#container > div.box form div.form-group p a{
+    color: var(--color-ming);
+    text-decoration: none;
+}
+div#container > div.box form div.form-group label{
+    position: absolute;
+    left: 0;
+    top: 0;
+    pointer-events: none;
+    user-select: none;
+    padding: 1rem;
+    color: #a0a0a0;
+    font-size: 14px;
+    transition: .14s ease all;
+    padding: 1.125rem 1rem;
+}
+div#container > div.box form div.form-group input:focus + label,
+div#container > div.box form div.form-group input:valid + label{
+    transform: translate(-4px, -12px);
+    font-size: 12px;
+}
+div#container > div.box form input{
+    width: 100%;
+    outline: 0;
+    border: none;
+    padding: 1.375rem 1rem .75rem;
+    border-radius: 8px;
+    font-size: 14px;
+    background-color: #fff;
+    transition: .14s ease all;
+    border: 1px solid #f0f0f0;
+}
+div#container > div.box form input:focus,
+div#container > div.box form div.form-group input:valid{
+    background-color: #f0f0f0;
+}
+div#container > div.box form button{
+    border: none;
+    outline: 0;
+    border-radius: 8px;
+    background-color: var(--color-ming);
+    color: #fff;
+    padding: .75rem 1rem;
+    margin: 1rem 0 .75rem;
+    font-size: 14px;
+    cursor: pointer;
+    transition: .14s ease background-color;
+}
+div#container > div.box form button:hover{
+    background-color: #3f6565;
+}
+div#container > div.box form button:active{
+    background-color: #375757;
+}
