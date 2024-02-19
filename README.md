@@ -1,7 +1,7 @@
 # MyDrive
-Web application for file managment on cloud.
--File sharing between accounts
--File preview
--Downloading, uploading, directories and more
+Web application for file managment on cloud.\n
+-File sharing between accounts\n
+-File preview\n
+-Downloading, uploading, directories and more\n
 
 NodeJS, MongoDB, JWT for authentication
